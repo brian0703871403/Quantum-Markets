@@ -139,7 +139,7 @@ export default function CTASection() {
           initial={{ opacity: 0, y: 30 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.7, delay: 0.1 }}
-          className="text-5xl sm:text-6xl lg:text-7xl font-extrabold text-white mb-6 leading-tight"
+          className="text-4xl sm:text-5xl lg:text-7xl font-extrabold text-white mb-6 leading-tight"
         >
           Ready to Start
           <br />
@@ -203,7 +203,7 @@ export default function CTASection() {
           initial={{ opacity: 0 }}
           animate={inView ? { opacity: 1 } : {}}
           transition={{ delay: 0.5 }}
-          className="flex flex-wrap items-center justify-center gap-6 text-sm text-slate-400"
+          className="flex flex-wrap items-center justify-center gap-3 sm:gap-6 text-sm text-slate-400"
         >
           {[
             "Free to join",

@@ -5,14 +5,14 @@ import { motion, type Variants } from "framer-motion";
 import { TrendingUp, ArrowRight, Play } from "lucide-react";
 
 const cryptoSymbols = [
-  { symbol: "₿", label: "BTC", color: "#f7931a", delay: 0, x: "10%", y: "20%", size: "text-2xl" },
-  { symbol: "Ξ", label: "ETH", color: "#627eea", delay: 1, x: "85%", y: "15%", size: "text-3xl" },
-  { symbol: "◎", label: "SOL", color: "#9945ff", delay: 2, x: "75%", y: "70%", size: "text-xl" },
-  { symbol: "◆", label: "BNB", color: "#f0b90b", delay: 0.5, x: "15%", y: "75%", size: "text-2xl" },
-  { symbol: "✕", label: "XRP", color: "#00aae4", delay: 1.5, x: "90%", y: "45%", size: "text-lg" },
-  { symbol: "◉", label: "ADA", color: "#0033ad", delay: 2.5, x: "5%", y: "50%", size: "text-xl" },
-  { symbol: "Ł", label: "LTC", color: "#bfbbbb", delay: 0.8, x: "50%", y: "10%", size: "text-lg" },
-  { symbol: "Ð", label: "DOGE", color: "#c2a633", delay: 1.8, x: "40%", y: "85%", size: "text-xl" },
+  { symbol: "₿", label: "BTC", color: "#f7931a", delay: 0, x: "5%", y: "20%", size: "text-2xl", mobileHide: false },
+  { symbol: "Ξ", label: "ETH", color: "#627eea", delay: 1, x: "88%", y: "15%", size: "text-3xl", mobileHide: true },
+  { symbol: "◎", label: "SOL", color: "#9945ff", delay: 2, x: "82%", y: "65%", size: "text-xl", mobileHide: true },
+  { symbol: "◆", label: "BNB", color: "#f0b90b", delay: 0.5, x: "5%", y: "72%", size: "text-2xl", mobileHide: false },
+  { symbol: "✕", label: "XRP", color: "#00aae4", delay: 1.5, x: "88%", y: "42%", size: "text-lg", mobileHide: true },
+  { symbol: "◉", label: "ADA", color: "#0033ad", delay: 2.5, x: "3%", y: "48%", size: "text-xl", mobileHide: true },
+  { symbol: "Ł", label: "LTC", color: "#bfbbbb", delay: 0.8, x: "50%", y: "8%", size: "text-lg", mobileHide: true },
+  { symbol: "Ð", label: "DOGE", color: "#c2a633", delay: 1.8, x: "45%", y: "88%", size: "text-xl", mobileHide: true },
 ];
 
 const stats = [
@@ -91,7 +91,7 @@ export default function HeroSection() {
       {mounted && cryptoSymbols.map((crypto, i) => (
         <motion.div
           key={crypto.label}
-          className={`absolute font-bold ${crypto.size} select-none pointer-events-none`}
+          className={`absolute font-bold ${crypto.size} select-none pointer-events-none ${crypto.mobileHide ? "hidden lg:block" : ""}`}
           style={{
             left: crypto.x,
             top: crypto.y,
@@ -117,7 +117,7 @@ export default function HeroSection() {
 
       {/* Main content */}
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-24 pb-16">
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
+        <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
           {/* Left: Text content */}
           <motion.div
             variants={containerVariants}
@@ -135,7 +135,7 @@ export default function HeroSection() {
 
             <motion.h1
               variants={itemVariants}
-              className="text-5xl sm:text-6xl lg:text-7xl font-extrabold leading-tight tracking-tight mb-6"
+              className="text-4xl sm:text-5xl lg:text-7xl font-extrabold leading-tight tracking-tight mb-6"
             >
               Trade the{" "}
               <span className="gradient-text">Future</span>
@@ -290,7 +290,7 @@ export default function HeroSection() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 1.5 }}
-              className="absolute -bottom-6 -left-6 glassmorphism rounded-xl p-3 text-sm"
+              className="hidden sm:block absolute -bottom-6 -left-6 glassmorphism rounded-xl p-3 text-sm"
             >
               <div className="flex items-center gap-2 text-emerald-400 font-semibold">
                 <TrendingUp size={14} />
@@ -306,7 +306,7 @@ export default function HeroSection() {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 1, duration: 0.7 }}
-          className="mt-20 grid grid-cols-2 lg:grid-cols-4 gap-6"
+          className="mt-12 lg:mt-20 grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-6"
         >
           {stats.map((stat, i) => (
             <motion.div

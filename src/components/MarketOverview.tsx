@@ -187,7 +187,7 @@ export default function MarketOverview() {
               animate={inView ? { opacity: 1, x: 0 } : {}}
               transition={{ delay: 0.3 + i * 0.1 }}
               whileHover={{ backgroundColor: "rgba(124,58,237,0.05)" }}
-              className="grid grid-cols-2 md:grid-cols-7 gap-4 px-6 py-5 border-b border-white/5 cursor-pointer transition-colors duration-200"
+              className="grid grid-cols-2 md:grid-cols-7 gap-4 px-4 sm:px-6 py-4 border-b border-white/5 cursor-pointer transition-colors duration-200"
             >
               {/* Rank */}
               <div className="hidden md:flex col-span-1 items-center">

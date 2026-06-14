@@ -63,9 +63,9 @@ export default function Footer() {
     <footer style={{ background: "#05050a" }} className="border-t border-white/5">
       {/* Main footer */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-        <div className="grid grid-cols-2 md:grid-cols-6 gap-10">
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-8 lg:gap-10">
           {/* Brand column */}
-          <div className="col-span-2">
+          <div className="col-span-2 sm:col-span-3 md:col-span-2">
             <motion.a
               href="#"
               className="flex items-center gap-2 group mb-5 inline-flex"
@@ -106,7 +106,7 @@ export default function Footer() {
 
           {/* Link columns */}
           {Object.entries(footerLinks).map(([category, links]) => (
-            <div key={category} className="col-span-1">
+            <div key={category} className="col-span-1 sm:col-span-1 md:col-span-1">
               <h4 className="text-white font-semibold text-sm mb-4">{category}</h4>
               <ul className="space-y-2.5">
                 {links.map((link) => (

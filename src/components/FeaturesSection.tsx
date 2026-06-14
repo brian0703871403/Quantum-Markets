@@ -89,7 +89,7 @@ export default function FeaturesSection() {
   const inView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section id="features" className="relative py-24 overflow-hidden" style={{ background: "#0a0a0f" }}>
+    <section id="features" className="relative py-16 sm:py-24 overflow-hidden" style={{ background: "#0a0a0f" }}>
       {/* Background decoration */}
       <div className="absolute inset-0 pointer-events-none">
         <div
@@ -110,7 +110,7 @@ export default function FeaturesSection() {
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-purple-500/30 bg-purple-500/10 text-purple-300 text-sm font-medium mb-6">
             Why Choose Us
           </div>
-          <h2 className="text-4xl sm:text-5xl font-extrabold text-white mb-6">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white mb-6">
             Why Choose{" "}
             <span className="gradient-text">Quantum Markets</span>
           </h2>

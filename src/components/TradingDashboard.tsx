@@ -88,35 +88,34 @@ export default function TradingDashboard() {
           style={{ boxShadow: "0 0 80px rgba(124,58,237,0.15), 0 40px 80px rgba(0,0,0,0.4)" }}
         >
           {/* Top bar */}
-          <div className="flex items-center justify-between px-6 py-3 border-b border-white/10 bg-white/3">
-            <div className="flex items-center gap-4">
+          <div className="flex items-center justify-between px-4 sm:px-6 py-3 border-b border-white/10 bg-white/3">
+            <div className="flex items-center gap-3">
               <div className="flex gap-1.5">
-                <div className="w-3 h-3 rounded-full bg-red-500/70" />
-                <div className="w-3 h-3 rounded-full bg-yellow-500/70" />
-                <div className="w-3 h-3 rounded-full bg-green-500/70" />
+                <div className="w-2.5 h-2.5 rounded-full bg-red-500/70" />
+                <div className="w-2.5 h-2.5 rounded-full bg-yellow-500/70" />
+                <div className="w-2.5 h-2.5 rounded-full bg-green-500/70" />
               </div>
-              <span className="text-slate-400 text-xs font-medium">Quantum Markets — Advanced Trading Terminal</span>
+              <span className="hidden sm:inline text-slate-400 text-xs font-medium">Quantum Markets — Trading Terminal</span>
+              <span className="sm:hidden text-slate-400 text-xs font-medium">QM Terminal</span>
             </div>
-            <div className="flex items-center gap-4">
-              <div className="flex items-center gap-2">
-                <span className="text-slate-400 text-xs">BTC/USDT</span>
-                <motion.span
-                  key={price}
-                  initial={{ opacity: 0, y: -5 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  className="text-white font-bold text-sm"
-                >
-                  ${price.toLocaleString('en-US', { minimumFractionDigits: 2 })}
-                </motion.span>
-                <span className="text-emerald-400 text-xs">+4.27%</span>
-              </div>
+            <div className="flex items-center gap-2">
+              <span className="text-slate-400 text-xs">BTC/USDT</span>
+              <motion.span
+                key={price}
+                initial={{ opacity: 0, y: -5 }}
+                animate={{ opacity: 1, y: 0 }}
+                className="text-white font-bold text-sm"
+              >
+                ${price.toLocaleString('en-US', { minimumFractionDigits: 2 })}
+              </motion.span>
+              <span className="text-emerald-400 text-xs">+4.27%</span>
             </div>
           </div>
 
           {/* Main content */}
           <div className="grid grid-cols-1 lg:grid-cols-12 divide-y lg:divide-y-0 lg:divide-x divide-white/5">
             {/* Chart area */}
-            <div className="lg:col-span-7 p-4">
+            <div className="lg:col-span-7 p-3 sm:p-4">
               <div className="flex items-center gap-4 mb-4">
                 {["1H", "4H", "1D", "1W"].map((tf, i) => (
                   <button
@@ -209,7 +208,7 @@ export default function TradingDashboard() {
             </div>
 
             {/* Order book */}
-            <div className="lg:col-span-3 p-4 border-t lg:border-t-0 border-white/5">
+            <div className="hidden lg:block lg:col-span-3 p-4 border-t lg:border-t-0 border-white/5">
               <h3 className="text-white text-xs font-semibold uppercase tracking-wider mb-3 flex items-center justify-between">
                 Order Book
                 <span className="text-slate-500 font-normal normal-case">BTC/USDT</span>
@@ -261,7 +260,7 @@ export default function TradingDashboard() {
             </div>
 
             {/* Recent trades */}
-            <div className="lg:col-span-2 p-4 border-t lg:border-t-0 border-white/5">
+            <div className="hidden lg:block lg:col-span-2 p-4 border-t lg:border-t-0 border-white/5">
               <h3 className="text-white text-xs font-semibold uppercase tracking-wider mb-3">
                 Recent Trades
               </h3>
@@ -291,8 +290,8 @@ export default function TradingDashboard() {
           </div>
 
           {/* Bottom buy/sell bar */}
-          <div className="px-6 py-4 border-t border-white/10 bg-white/2 flex flex-col sm:flex-row items-center gap-4">
-            <div className="flex-1 flex items-center gap-3">
+          <div className="px-4 sm:px-6 py-4 border-t border-white/10 bg-white/2 flex flex-col gap-3">
+            <div className="flex flex-col sm:flex-row gap-3">
               <input
                 type="text"
                 placeholder="Amount (BTC)"
@@ -309,14 +308,14 @@ export default function TradingDashboard() {
               <motion.button
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
-                className="px-6 py-2.5 rounded-lg bg-emerald-500 text-white font-bold text-sm hover:bg-emerald-400 transition-colors"
+                className="flex-1 sm:flex-none px-6 py-2.5 rounded-lg bg-emerald-500 text-white font-bold text-sm hover:bg-emerald-400 transition-colors"
               >
                 Buy BTC
               </motion.button>
               <motion.button
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
-                className="px-6 py-2.5 rounded-lg bg-red-500 text-white font-bold text-sm hover:bg-red-400 transition-colors"
+                className="flex-1 sm:flex-none px-6 py-2.5 rounded-lg bg-red-500 text-white font-bold text-sm hover:bg-red-400 transition-colors"
               >
                 Sell BTC
               </motion.button>
